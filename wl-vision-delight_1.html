@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WL Vision Delight Sdn Bhd (47800-T) — Your Neighbourhood Supply Partner</title>
+<meta name="description" content="WL Vision Delight is your trusted local partner for chilled and frozen FMCG distribution across Malaysia. Serving retailers, foodservice operators, and households.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0F172A;
+    --navy-mid: #1E3A5F;
+    --blue: #2563EB;
+    --blue-light: #3B82F6;
+    --blue-pale: #DBEAFE;
+    --frost: #EFF6FF;
+    --ice: #F0F9FF;
+    --white: #FFFFFF;
+    --off-white: #F8FAFC;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-500: #64748B;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --text: #0F172A;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,0.05);
+    --shadow-md: 0 4px 16px rgba(15,23,42,0.08);
+    --shadow-lg: 0 12px 40px rgba(15,23,42,0.12);
+    --shadow-xl: 0 24px 64px rgba(15,23,42,0.15);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 5%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--gray-200);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: var(--shadow-md); }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 38px; width: auto; display: block; }
+  .nav-brand { display: flex; align-items: center; }
+  .nav-brand-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); letter-spacing: -0.2px; white-space: nowrap; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 500; color: var(--gray-500);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--blue); color: var(--white);
+    padding: 10px 22px; border-radius: 50px;
+    font-size: 0.88rem; font-weight: 600;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .nav-cta:hover { background: var(--navy-mid); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100dvh;
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    background: linear-gradient(160deg, var(--frost) 0%, var(--white) 60%, var(--blue-pale) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-shape {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(37,99,235,0.06), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-bg-shape.s1 { width: 800px; height: 800px; top: -300px; right: -200px; }
+  .hero-bg-shape.s2 { width: 500px; height: 500px; bottom: -200px; left: -150px; }
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    max-width: 1280px; margin: 0 auto; width: 100%;
+  }
+  .hero-content { max-width: 560px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-pale); border: 1px solid var(--blue);
+    color: var(--blue); padding: 6px 16px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+    margin-bottom: 24px; text-transform: uppercase;
+  }
+  .hero-badge svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+  h1 {
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: 800; line-height: 1.1;
+    color: var(--navy); margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  h1 em { font-style: normal; color: var(--blue); }
+  .hero-desc {
+    font-size: 1.1rem; color: var(--gray-500); line-height: 1.75;
+    margin-bottom: 36px; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: var(--white);
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 600; font-size: 0.95rem;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+  .btn-secondary {
+    background: transparent; color: var(--navy-mid);
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 600; font-size: 0.95rem;
+    border: 2px solid var(--gray-200);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-pale); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative; display: flex; justify-content: center; align-items: center;
+  }
+  .hero-image-main {
+    width: 100%; max-width: 580px; height: 480px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+  }
+  .hero-image-main img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-stats {
+    position: absolute; z-index: 10;
+    background: var(--white); border-radius: var(--radius-md);
+    padding: 16px 22px;
+    box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 14px;
+    animation: float 3s ease-in-out infinite;
+  }
+  .hero-stats.s1 { bottom: 30px; left: -20px; }
+  .hero-stats.s2 { top: 30px; right: -20px; animation-delay: 1.5s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .stat-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--frost); display: flex; align-items: center; justify-content: center;
+  }
+  .stat-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.5; }
+  .stat-num { font-size: 1.5rem; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
+  .stat-label { font-size: 0.75rem; color: var(--gray-500); font-weight: 500; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 5%; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-header { margin-bottom: 56px; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--blue); margin-bottom: 12px;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800; color: var(--navy); margin-bottom: 14px; line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+  .section-lead { font-size: 1.05rem; color: var(--gray-500); line-height: 1.75; max-width: 560px; }
+
+  /* ── TRUST BAR ── */
+  #trust { padding: 48px 5%; background: var(--navy); }
+  .trust-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 14px;
+    color: rgba(255,255,255,0.9);
+  }
+  .trust-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+  }
+  .trust-icon svg { width: 22px; height: 22px; stroke: var(--blue-light); fill: none; stroke-width: 1.5; }
+  .trust-text { font-size: 0.9rem; font-weight: 600; }
+  .trust-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-image {
+    border-radius: var(--radius-xl); overflow: hidden;
+    height: 380px; position: relative;
+  }
+  .about-image img { width: 100%; height: 100%; object-fit: contain; }
+  .about-image-overlay {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    background: rgba(255,255,255,0.95); border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex; align-items: center; gap: 16px;
+    backdrop-filter: blur(8px);
+  }
+  .about-badge-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .about-badge-icon svg { width: 24px; height: 24px; stroke: white; fill: none; stroke-width: 2; }
+  .about-badge-title { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+  .about-badge-sub { font-size: 0.8rem; color: var(--gray-500); }
+
+  .about-text h2 { margin-bottom: 20px; }
+  .about-text p { color: var(--gray-500); line-height: 1.8; margin-bottom: 14px; font-size: 0.98rem; }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
+  }
+  .about-stat {
+    background: var(--frost); border-radius: var(--radius-md); padding: 20px;
+    text-align: center;
+  }
+  .about-stat-num { font-size: 1.8rem; font-weight: 800; color: var(--blue); }
+  .about-stat-label { font-size: 0.75rem; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+
+  /* ── BRANDS ── */
+  #brands { background: var(--off-white); }
+  .brands-header { text-align: center; margin-bottom: 56px; }
+  .brands-header .section-lead { margin: 0 auto; }
+  .brands-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .brand-card {
+    background: var(--white); border-radius: var(--radius-md); overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border: 1px solid var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px 16px;
+    cursor: default;
+  }
+  .brand-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .brand-card img { width: 100%; max-height: 60px; object-fit: contain; }
+
+  /* ── RETAILERS ── */
+  #retailers { background: var(--white); }
+  .retailers-header { text-align: center; margin-bottom: 56px; }
+  .retailers-header .section-lead { margin: 0 auto; }
+  .retailers-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .retailer-card {
+    background: var(--off-white); border-radius: var(--radius-md); overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border: 1px solid var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px 12px;
+    cursor: default;
+  }
+  .retailer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .retailer-card img { width: 100%; max-height: 56px; object-fit: contain; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--white); }
+  .gallery-header { text-align: center; margin-bottom: 48px; }
+  .gallery-header .section-lead { margin: 0 auto; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .gitem {
+    border-radius: var(--radius-lg); overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background: #f1f5f9;
+    aspect-ratio: 1 / 1;
+    text-decoration: none;
+  }
+  .gitem img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s; display: block; padding: 20px; box-sizing: border-box; }
+  .gitem:hover img { transform: scale(1.05); }
+  .gitem-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(15,23,42,0.6), transparent);
+  }
+  .gitem-label {
+    position: absolute; bottom: 12px; left: 0; right: 0; text-align: center;
+    color: var(--white); font-size: 0.82rem; font-weight: 600; z-index: 2;
+    padding: 0 10px;
+  }
+  .photo-album { width: 100%; height: 100%; }
+  .photo-album-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 3px; width: 100%; height: 100%; }
+  .photo-album-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gitem-logo-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; padding: 20px;
+    z-index: 3;
+  }
+  .gitem-logo-overlay img { height: 40px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }
+  .gitem.span2 { grid-column: span 2; }
+  .gitem.row2 { grid-row: span 2; }
+
+  /* ── CTA BANNER ── */
+  #cta-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 80px 5%;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-bg-circles {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .cta-bg-circles span {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+  }
+  .cta-bg-circles span:nth-child(1) { width: 400px; height: 400px; top: -150px; left: 50%; transform: translateX(-80px); }
+  .cta-bg-circles span:nth-child(2) { width: 300px; height: 300px; bottom: -100px; right: 10%; }
+  #cta-banner h2 { color: var(--white); margin-bottom: 14px; }
+  #cta-banner .section-lead { color: rgba(255,255,255,0.7); margin: 0 auto 32px; }
+  #cta-banner .btn-primary { background: var(--white); color: var(--navy); }
+  #cta-banner .btn-primary:hover { background: var(--frost); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+  /* ── FAQ ── */
+  #faq { background: var(--off-white); }
+  .faq-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .faq-aside h2 { margin-bottom: 16px; }
+  .faq-aside p { color: var(--gray-500); line-height: 1.75; }
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item {
+    background: var(--white); border-radius: var(--radius-md); overflow: hidden;
+    border: 1px solid var(--gray-200);
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: var(--shadow-md); }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 24px; cursor: pointer;
+    font-weight: 600; font-size: 0.95rem; color: var(--navy);
+  }
+  .faq-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--frost); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: transform 0.3s, background 0.2s;
+  }
+  .faq-icon svg { width: 14px; height: 14px; stroke: var(--blue); fill: none; stroke-width: 2; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--blue); }
+  .faq-item.open .faq-icon svg { stroke: white; }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    font-size: 0.9rem; color: var(--gray-500); line-height: 1.75;
+    padding: 0 24px;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: start; }
+  .contact-info { padding-top: 10px; }
+  .contact-info h2 { margin-bottom: 14px; }
+  .contact-info > p { color: var(--gray-500); margin-bottom: 36px; }
+  .cinfo-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 28px;
+  }
+  .cinfo-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: var(--frost); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .cinfo-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.5; }
+  .cinfo-label { font-size: 0.75rem; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; }
+  .cinfo-val { color: var(--navy); font-weight: 500; margin-top: 4px; font-size: 0.95rem; }
+  .contact-form {
+    background: var(--off-white); border-radius: var(--radius-xl); padding: 44px;
+    border: 1px solid var(--gray-200);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  label.fl { display: block; font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  input, textarea, select {
+    width: 100%; padding: 13px 16px; border-radius: var(--radius-sm);
+    border: 1.5px solid var(--gray-200); font-family: inherit;
+    font-size: 0.9rem; color: var(--text);
+    background: var(--white); transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+  textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    width: 100%; padding: 16px; border-radius: 50px;
+    background: var(--blue); color: var(--white);
+    font-family: inherit; font-weight: 700; font-size: 1rem;
+    border: none; cursor: pointer; transition: all 0.2s;
+  }
+  .form-submit:hover { background: var(--navy-mid); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+  .form-submit:active { transform: scale(0.99); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 48px 5%;
+  }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 60px; margin-bottom: 40px;
+  }
+  .footer-brand { max-width: 300px; }
+  .footer-logo {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--white); margin-bottom: 14px;
+  }
+  .footer-logo img { height: 36px; width: auto; display: block; }
+  .footer-brand-text { display: flex; align-items: center; }
+  .footer-brand-name { font-weight: 700; font-size: 0.88rem; color: var(--white); letter-spacing: -0.2px; white-space: nowrap; }
+  .footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+  .footer-links { display: flex; gap: 60px; }
+  .footer-col h4 { color: var(--white); font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { font-size: 0.88rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    font-size: 0.82rem;
+  }
+  .footer-bottom strong { color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner, .about-grid, .contact-grid, .faq-layout { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { display: none; }
+    .brands-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .nav-links { display: none; }
+    .footer-top { flex-direction: column; gap: 32px; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .brands-grid { grid-template-columns: 1fr; }
+    .retailers-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr; }
+    .trust-inner { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="WL Vision Delight Blue Optimized Logo.png" alt="WL Vision Delight Logo">
+    <div class="nav-brand">
+      <div class="nav-brand-name">WL Vision Delight Sdn Bhd (47800-T)</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.link/ezcn5i" target="_blank" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-shape s1"></div>
+  <div class="hero-bg-shape s2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Trusted Klang Valley Chilled and Frozen FMCG Supplier
+      </div>
+      <h1>Freshness You Can <em>Count On,</em> Delivered Close to Home</h1>
+      <p class="hero-desc">WL Vision Delight is your trusted Klang Valley distributor for quality chilled and frozen FMCG products. We carry top brands like Magnum, Wall's, Tyson, Maeil, and more — serving retailers, foodservice operators, and households alike.</p>
+      <div class="hero-btns">
+        <a href="#brands" class="btn-primary">Explore Brands</a>
+        <a href="#contact" class="btn-secondary">Partner With Us</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-main">
+        <img src="WL VISION DELIGHT PHOTOS.png" alt="WL Vision Delight warehouse">
+        <div class="hero-stats s1">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Local Partners</div>
+          </div>
+        </div>
+        <div class="hero-stats s2">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="stat-num">99.8%</div>
+            <div class="stat-label">On-Time Delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section id="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-text">>30 Temperature-Control Fleet</div>
+        <div class="trust-sub">Servicing more than 3,000 Businesses</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-text">Certified & Insured</div>
+        <div class="trust-sub">Fully licensed Malaysian distributor</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-text">Same-Day & Scheduled Delivery</div>
+        <div class="trust-sub">Flexible options to suit your business hours</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-text">Wide Product Range</div>
+        <div class="trust-sub">More than 200 Choices available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" style="background:var(--navy);padding:60px 5%;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--blue-light);margin-bottom:12px;">Watch Us In Action</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--white);margin-bottom:24px;letter-spacing:-0.5px;">Our Warehouse Operations</h2>
+    <video style="width:100%;border-radius:16px;outline:none;" controls playsinline autoplay muted loop>
+      <source src="Cold Storage Warehouse/Warehouse Sales Clip.MOV" type="video/quicktime">
+      <source src="Cold Storage Warehouse/Warehouse Sales Clip.MOV" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="WL VISION DELIGHT PHOTOS.png" alt="WL Vision Delight team">
+        <div class="about-image-overlay">
+          <div class="about-badge-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18M3 9h18M3 15h18M3 21h18" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="about-badge-title">Your Neighbourhood Partner</div>
+            <div class="about-badge-sub">Serving communities across Malaysia since day one</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">Who We Are</p>
+        <h2>Built on Freshness, Driven by Community Trust</h2>
+        <p>WL Vision Delight Sdn Bhd is a Malaysian-owned FMCG distribution company with a specialised focus on chilled and frozen products. We believe in building lasting relationships with every customer — from busy households to thriving businesses.</p>
+        <p>We bridge the gap between manufacturers and end-consumers, ensuring every product arrives fresh, on time, and in perfect condition. As your neighbourhood supply partner, we're committed to making quality products accessible to everyone in our community.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">3,000+</div>
+            <div class="about-stat-label">Retail Distribution Points</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">26+</div>
+            <div class="about-stat-label">Years Experience</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">99.99%</div>
+            <div class="about-stat-label">Cold Chain Success</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands">
+  <div class="section-inner">
+    <div class="brands-header">
+      <p class="eyebrow">Our Trusted Partners</p>
+      <h2>Brands We Carry</h2>
+      <p class="section-lead">We're proud to distribute some of the most loved chilled, frozen, and FMCG brands across Malaysia — bringing quality products to every household and business.</p>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-card"><img src="Brands Logo/WALL'S LOGO.jpg" alt="Wall's"></div>
+      <div class="brand-card"><img src="Brands Logo/MAGNUM LOGO.jpeg" alt="Magnum"></div>
+      <div class="brand-card"><img src="Brands Logo/TYSON LOGO.png" alt="Tyson"></div>
+      <div class="brand-card"><img src="Brands Logo/FIRST PRIDE LOGO.png" alt="First Pride"></div>
+      <div class="brand-card"><img src="Brands Logo/PACIFIC WEST LOGO.png" alt="Pacific West"></div>
+      <div class="brand-card"><img src="Brands Logo/NUTRIGEN LOGO.png" alt="Nutrigen"></div>
+      <div class="brand-card"><img src="Brands Logo/BETAGEN LOGO.jpeg" alt="Betagen"></div>
+      <div class="brand-card"><img src="Brands Logo/MAEIL BRAND.jpg" alt="Maeil"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RETAILERS -->
+<section id="retailers">
+  <div class="section-inner">
+    <div class="retailers-header">
+      <p class="eyebrow">Our Network</p>
+      <h2>Trusted Partners in Malaysia</h2>
+      <p class="section-lead">We proudly partner with leading retailers and grocers across Malaysia, ensuring our products reach every household and business.</p>
+    </div>
+    <div class="retailers-grid">
+      <div class="retailer-card"><img src="Retailers Logo/big logo.jpeg" alt="BIG"></div>
+      <div class="retailer-card"><img src="Retailers Logo/IFRUITS LOGO.png" alt="iFruits"></div>
+      <div class="retailer-card"><img src="Retailers Logo/Memizoozoo logo.png" alt="Memizoozoo"></div>
+      <div class="retailer-card"><img src="Retailers Logo/mycu logo.jpeg" alt="mycu"></div>
+      <div class="retailer-card"><img src="Retailers Logo/Mynews Logo.png" alt="Mynews"></div>
+      <div class="retailer-card"><img src="Retailers Logo/NSK GROCER LOGO.jpeg" alt="NSK Grocer"></div>
+      <div class="retailer-card"><img src="Retailers Logo/NSK-LOGO-1-300x188.jpg" alt="NSK"></div>
+      <div class="retailer-card"><img src="Retailers Logo/OTK LOGO.jpeg" alt="OTK"></div>
+      <div class="retailer-card"><img src="Retailers Logo/ST GROUP LOGO.jpeg" alt="ST Group"></div>
+      <div class="retailer-card"><img src="Retailers Logo/supervalue logo.png" alt="Supervalue"></div>
+      <div class="retailer-card"><img src="Retailers Logo/VG Logo.jpeg" alt="VG"></div>
+      <div class="retailer-card"><img src="Retailers Logo/Wellmart logo.jpeg" alt="Wellmart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="gallery-header">
+      <p class="eyebrow">Gallery</p>
+      <h2>Behind the Scenes</h2>
+      <p class="section-lead">From our cold storage warehouse to your local store — quality and care at every step.</p>
+    </div>
+    <div class="gallery-grid">
+      <a href="Walls Ice Cream/Walls IC Product Catalogue - Q1 2025.pdf" target="_blank" class="gitem">
+        <img src="Brands Logo/WALL'S LOGO.jpg" alt="Ice Cream Selection">
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Ice-Cream Selection →</span>
+      </a>
+      <a href="Fresh Dairy/WLVD CATALOGUE_Betagen products 2026  (1).pdf" target="_blank" class="gitem">
+        <img src="Brands Logo/BETAGEN LOGO.jpeg" alt="Dairy Product">
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Dairy Product →</span>
+      </a>
+      <a href="Frozen Selection/PW FS Brochuree.pdf" target="_blank" class="gitem">
+        <img src="Brands Logo/TYSON LOGO.png" alt="Frozen Food Selection">
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Frozen Food Selection →</span>
+      </a>
+      <a href="Premium Greek Yogurt/DEC WAREHOUSE KOUKAKIS PRICE.png" target="_blank" class="gitem">
+        <img src="Premium Greek Yogurt/DEC WAREHOUSE KOUKAKIS PRICE.png" alt="Premium Greek Yogurt">
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Premium Greek Yogurt →</span>
+      </a>
+      <a href="WLVD Who We are.JPG" target="_blank" class="gitem">
+        <img src="WLVD Who We are.JPG" alt="Our Activities">
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Our Activities →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <div class="cta-bg-circles"><span></span><span></span></div>
+  <div class="section-inner">
+    <h2>Ready to Partner With Us?</h2>
+    <p class="section-lead">Whether you're a retailer, foodservice operator, or household looking for quality supplies — we'd love to hear from you.</p>
+    <a href="#contact" class="btn-primary">Get Started Today</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="faq-layout">
+      <div class="faq-aside">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions</h2>
+        <p>Have more questions? Reach out to our friendly team — we're always happy to help you find the right supply solution for your needs.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What types of products do you distribute?
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a">We specialise in chilled (0°C–4°C) and frozen (-18°C) FMCG products including dairy, fresh produce, seafood, meats, poultry, frozen meals, ice cream, and beverages. We cater to a wide range of temperature-sensitive goods.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Do you serve both businesses and individual customers?
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a">Yes! We serve both B2B clients (supermarkets, restaurants, hotels, wholesalers) and B2C customers (individual buyers and small households). Contact us to discuss the right package for your needs.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What areas do you deliver to?
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a">We currently operate across key regions in Malaysia. Please contact our team for specific delivery route availability and coverage in your area.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Is there a minimum order quantity (MOQ)?
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a">MOQ varies by product category and order type. We offer flexible arrangements for both bulk trade orders and smaller consumer purchases. Get in touch to discuss your requirements.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How do you ensure cold chain integrity during delivery?
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a">Our refrigerated fleet maintains strict temperature control throughout transit. We use temperature logging and monitoring systems to ensure products arrive within the required temperature range, every time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Let's Work Together</h2>
+        <p>Whether you're a retailer, foodservice operator, or individual buyer — we'd love to hear from you. Reach out via WhatsApp or visit us at our office.</p>
+        <br><br>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Location</div>
+            <div class="cinfo-val">12, Jalan Meranti Puchong D25, Meranti Puchong, 47120 Puchong, Selangor</div>
+            <a href="https://maps.google.com/?q=12,+Jalan+Meranti+Puchong+D25,+Meranti+Puchong,+47120+Puchong,+Selangor" target="_blank" style="font-size:0.82rem;color:var(--blue);margin-top:4px;display:inline-block;">View on Google Maps →</a>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">WhatsApp</div>
+            <div class="cinfo-val">+60 162 122 980</div>
+            <a href="https://wa.link/ezcn5i" target="_blank" style="font-size:0.82rem;color:var(--blue);margin-top:4px;display:inline-block;">Chat with us on WhatsApp →</a>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Email</div>
+            <div class="cinfo-val">eddiwongwl@gmail.com</div>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Business Hours</div>
+            <div class="cinfo-val">Mon – Sat, 8:30 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="WL VISION DELIGHT CONTACT US FOOTER.png" alt="WL Vision Delight Footer" style="width:100%;display:block;">
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+</script>
+</body>
+</html>
